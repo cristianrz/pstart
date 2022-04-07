@@ -96,12 +96,17 @@ help(){
 	cat << 'EOF'
 usage: picoctl {command}
 
-  status  shows status of service
-  start   starts the service
-  stop    stops the service
+  disable  removes enable mark
+  enable   marks a service to be started on init
+  init     starts all enabled services
+  start    starts the service
+  status   shows status of service
+  stop     stops the service
 
 EOF
 }
+
+[ "$#" -eq 0 ] && help && exit 1
 
 action="$1"
 service="$2"
